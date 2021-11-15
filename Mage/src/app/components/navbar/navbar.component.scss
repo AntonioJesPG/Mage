@@ -1,0 +1,105 @@
+#logo .mat-icon {
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+#titulo { 
+    font-size: 25px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.img-nav{
+  margin-right: 20px;
+  width: 40px;
+}
+
+.botones-gestion{
+  margin-right: 2%;
+}
+
+.botonGestion{
+    margin-left: 30px !important;
+}
+
+.botonSoporte{
+  margin-right: 20px !important;
+}
+
+  button{
+      color: #ddd !important;
+      font-weight: bold !important;
+  }
+
+  button:hover{
+    color: white !important;
+  }
+
+  .btn{
+    background: #6F2232;
+    color: #ddd;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover{
+      color: #ddd;
+      background: #950740;
+  }
+
+  .menu{
+    background-color: #1A1A1D !important;
+    color: white !important;
+  }
+
+  .mat-menu-icon{
+    color: #ddd !important;
+}
+
+  .mat-menu-item{
+      color: #ddd !important;
+  }
+
+  .mat-menu-item:hover{
+    color: white !important;
+}
+
+.function{
+  display: none !important;
+}
+
+.content-row{
+  display: none !important;
+}
+
+.hidden-text{
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	left: -10000px !important;
+	font-size: 1px;
+}
+
+@media only screen and (max-width: 768px) {
+  .function{
+    display:inline-block !important;
+    margin-right: 20px !important;
+  }
+
+  .contenido{
+    display: none;
+  }
+
+  .content-row{
+    display: inline-block !important;
+  }
+
+  .botonLogin{
+    padding-left: 0!important;
+  }
+}
+
+

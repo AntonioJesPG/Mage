@@ -1,0 +1,280 @@
+//Productos destacados
+
+.cardphoto {
+  width : 150%;
+  min-width: 60%;
+  max-width: 60%;
+  max-height: 350px;
+}
+
+.h1-home{
+  text-align: center;
+  margin-bottom: 3%;
+  font-size: 50px;
+}
+
+.cardphoto-img{
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.custom-indicators{
+  top: 100%;
+}
+
+.custom-indicators li{
+  background-color: black;
+  width: 10px;
+  height: 10px;  
+}
+
+.ctrl-left{
+  left: -55px;
+  top: 45%;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.ctrl-right{
+  right: -55px;
+  top: 45%;
+  background-color: black;
+  width:50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.main-carousel{
+  margin-top: 4%;
+}
+
+.carousel-shadow{
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.container{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+
+.ctrl-disc{
+  top: 10% !important;
+  height: 150px !important;
+}
+
+.separadorPrecios{
+  margin-left: 10px;
+}
+
+.precios{
+    position:absolute;
+    bottom:0;
+    right:50px;
+}
+
+//Descuentos
+.container-prueba{
+  margin-top: 5%;
+  width:80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  //background-color:blueviolet;
+}
+
+.container-flip{
+  position:relative;
+  display: inline-block;
+  margin-left: 2%;
+  width:47%;
+}
+
+// base
+.flip {
+    position: relative;
+    >.front,
+    >.back {
+        display: block;
+        transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+        transition-duration: .5s;
+        transition-property: transform, opacity;
+    }
+    >.front {
+        transform: rotateY(0deg);
+    }
+    >.back {
+        position: absolute;
+        opacity: 0;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        transform: rotateY(-180deg);
+    }
+    &:hover {
+        >.front {
+            transform: rotateY(180deg);
+        }
+        >.back {
+            opacity: 1;
+            transform: rotateY(0deg);
+        }
+    }
+}
+
+// custom
+.flip {
+    margin-bottom: 1em;
+    width:100%;
+    >.front,
+    >.back {
+      display: block;
+      color: white;
+      width: inherit;
+      background-size: cover!important;
+      background-position: center!important;
+      height: 220px;
+      padding: 1em 2em;
+      background: #313131;
+      border-radius: 10px;
+      p {
+        font-size: 0.9125rem;
+        line-height: 160%;
+        color: #999;
+      }
+    }
+}
+
+.text-shadow {
+text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04), 7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04), 13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04), 19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+}
+
+//Productos
+
+.container-productos{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.product-tabs{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.precios-card{
+  position:absolute;
+  right:50px;
+  margin-top: 10px;
+  bottom: 5px;
+}
+
+
+//Tamaño menor a 768
+
+@media only screen and (max-width: 768px) {
+
+  .main-carousel{
+    margin-top: 15%;
+  }
+
+  .descripcionJuego{
+    display: none;
+  }
+
+  .card-title{
+    width: 70%;
+  }
+
+  .controlers-div{
+    margin-top: 5px;
+    position: relative;
+    z-index: 1;
+
+  }
+
+  .ctrl-left{
+    left: 0%;
+    width: 50px;
+    height:  50px;
+  }
+
+  .ctrl-right{
+    right: 0%;
+    width: 50px;
+    height:  50px;
+  }
+
+  .ctrl-disc{
+    height: 50px !important;
+  }
+
+  .carousel-card-container{
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .container-flip{
+    display:row;
+    margin-bottom:2%;
+    margin-left: 5%;
+    width: 90%;
+
+   }
+
+   .h1-home{
+     margin-bottom: 50px;
+   }
+
+   .h1-oferta{
+     margin-top: 100px;
+   }
+
+   .card-title{
+     width: auto;
+     //font-size: 20px;
+     font-size: calc(1em + 1vw);
+   }
+
+}
+
+@media only screen and (max-width: 400px) {
+  .container-prueba{
+    margin-top: 15% !important;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .descripcionJuego{
+    font-size: 12px;
+  }
+
+  .indexNoticiaTexto{
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width: 990px) {
+  .descripcionJuego{
+    display: none;
+  }
+
+  .indexNoticiaTexto{
+    display:inline-block;
+  }
+
+  .imagen-test{
+    width:150% !important;
+    height: 100% !important;
+  }
+}

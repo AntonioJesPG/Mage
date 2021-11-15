@@ -1,0 +1,75 @@
+<div class="contenedor">
+    <div class="contenedorTabla" >
+  
+        <mat-toolbar>
+            <button mat-raised-button color="primary" (click)="volverAGestion()">
+                Volver
+            </button>
+            <button mat-raised-button color="primary" class="botonCrear"  (click)="crearUsuario()" >
+                Crear Usuario
+            </button>
+        
+        </mat-toolbar>
+
+      <mat-table [dataSource]="listaUsuarios" class="tablaUsuario" id="tablaCesta">
+        <div class="total">
+          <ng-container matColumnDef="Foto de perfil">
+              <th mat-header-cell class="tableHeader" *matHeaderCellDef> Foto de perfil </th>
+              <td mat-cell *matCellDef="let element"><img class="img-user" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" > </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Nombre de usuario">
+                <th mat-header-cell *matHeaderCellDef> Nombre de Usuario </th>
+                <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+              </ng-container>
+              
+              <ng-container matColumnDef="Nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Primer apellido">
+                <th mat-header-cell *matHeaderCellDef> Primer apellido </th>
+                <td mat-cell *matCellDef="let element"> {{element.primer_apellido}} </td>
+              </ng-container>
+              
+              <ng-container matColumnDef="Segundo apellido">
+                <th mat-header-cell *matHeaderCellDef> Segundo apellido </th>
+                <td mat-cell *matCellDef="let element"> {{element.segundo_apellido}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Dni">
+                <th mat-header-cell *matHeaderCellDef> Dni </th>
+                <td mat-cell *matCellDef="let element"> {{element.dni}} </td>
+              </ng-container>
+              
+              <ng-container matColumnDef="Saldo">
+                <th mat-header-cell *matHeaderCellDef> Saldo </th>
+                <td mat-cell *matCellDef="let element"> {{element.saldo}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Rol">
+                <th mat-header-cell *matHeaderCellDef> Rol </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre_rol}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Funcion1">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element" class="td_cell"> 
+                     <button mat-raised-button class="botonFuncion" *ngIf="rolUsuarioLogeado.rol == 4 || (element.id_rol != 3 && element.id_rol != 4)" (click)="modificarUsuario(element.id)"><mat-icon>edit</mat-icon></button>
+                     <button mat-raised-button class="botonFuncion" *ngIf="rolUsuarioLogeado.rol == 4 || (element.id_rol != 3 && element.id_rol != 4)" (click)="eliminarUsuario(element.id)"><mat-icon>delete</mat-icon></button>
+                </td>
+              </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="nombresDeColumnas; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: nombresDeColumnas;"></tr>
+        </div>
+            </mat-table>
+  
+    </div>
+  </div>

@@ -1,0 +1,7 @@
+<div *ngIf="imagen.img == null; else elseBlock">
+        <img id="imagenRemitente" class="product-image" alt="imagen-producto" src="https://www.lyon-ortho-clinic.com/files/cto_layout/img/placeholder/book.jpg">
+</div>
+<ng-template #elseBlock>
+        <img id="imagenRemitente" class="product-image" alt="imagen-producto" [src]="'data:image/png;base64,' + imagen.img | safe">
+</ng-template>
+

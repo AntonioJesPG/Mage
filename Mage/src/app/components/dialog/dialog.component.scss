@@ -1,0 +1,22 @@
+.mat-icon{
+    font-size: 40px;
+}
+
+.video_dialog{
+    width: 600px !important;
+    height: 600px !important;
+}
+
+.game_video{
+    margin-left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+@media only screen and (max-width: 767px) {
+    .video_dialog{
+        width:380px !important;
+        height: 380px !important;
+    }
+}
+

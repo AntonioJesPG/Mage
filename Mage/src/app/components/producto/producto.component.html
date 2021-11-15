@@ -1,0 +1,213 @@
+<div class="external-img">
+    <app-imagen-producto [imagen]="imagen"></app-imagen-producto>
+    </div>
+
+    <!-- 	Start product image & Information -->
+    <div class="product-card">
+    <div class="card carousel-card-container">
+        <div class="card-horizontal">
+            <div class="cardphoto">
+                <div class="cardphoto-img">
+                <app-imagen-producto [imagen]="imagen"></app-imagen-producto>
+                </div>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title">{{producto.nombre}}</h1>
+                <h4 class="card-subtitle">De {{producto.desarrolladora}}</h4>
+                <p class="descripcion-card">{{producto.nombre}} se trata de un videojuego del género {{categoria.descripcion}} desarrollador por
+                    {{producto.desarrolladora}} y lanzado el {{producto.fecha_salida}}
+                </p>
+                <div class="controles" *ngIf="producto.descuento == 0">
+                    <h2 class="precios-little" *ngIf="comprable == true && enCesta == false">{{producto.precio}}€</h2>
+                    <button mat-raised-button color="primary" class="boton-precios" *ngIf="comprable == true && enCesta == false" (click)="agregarCesta()">Comprar</button>
+                    <h2 class="precios-little informacion" *ngIf="comprable == false && enCesta == false && rolUsuarioLogeado != null && rolUsuarioLogeado.rol == 1">Ya tienes este producto</h2>
+                    <h2 class="precios-little informacion" *ngIf="comprable == true && enCesta == true && rolUsuarioLogeado != null && rolUsuarioLogeado.rol == 1">Ya esta en tu cesta</h2>
+                </div>
+                <div class="controles-desc" *ngIf="producto.descuento != 0">
+                    <h2 class="precios-little" *ngIf="comprable == true && enCesta == false">{{producto.precio - (producto.precio*producto.descuento)/100}}€<del class="separadorPrecios">{{producto.precio}}€</del></h2>
+                    <button mat-raised-button color="primary" class="boton-precios" *ngIf="comprable == true && enCesta == false" (click)="agregarCesta()">Comprar</button>
+                    <h2 class="precios-little informacion" *ngIf="comprable == false && enCesta == false && rolUsuarioLogeado != null && rolUsuarioLogeado.rol == 1">Ya tienes este producto</h2>
+                    <h2 class="precios-little informacion" *ngIf="comprable == true && enCesta == true && rolUsuarioLogeado != null && rolUsuarioLogeado.rol == 1">Ya esta en tu cesta</h2>
+                </div>
+            </div>
+            </div>
+        </div>
+</div>
+
+<div class="container">	
+
+    <mat-card class="product-card-little">
+        <mat-card-header>
+          <mat-card-title>{{producto.nombre}}</mat-card-title>
+          <mat-card-subtitle>De {{producto.desarrolladora}}</mat-card-subtitle>
+        </mat-card-header>
+        <app-imagen-producto [imagen]="imagen"></app-imagen-producto>
+        <mat-card-content>
+            <mat-chip-list class="category">
+                <mat-chip class="category">{{categoria.descripcion}}</mat-chip>
+              </mat-chip-list>
+          <p>
+            {{producto.descripcion}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions class="controles" *ngIf="producto.descuento == 0">
+              <h2 class="precios-little" *ngIf="comprable == true && enCesta == false">{{producto.precio}}€</h2>
+          <button mat-raised-button color="primary" class="boton-precios" *ngIf="comprable == true && enCesta == false" (click)="agregarCesta()">Comprar</button>
+          <h2 class="precios-little informacion" *ngIf="comprable == false && enCesta == false && rolUsuarioLogeado != null && rolUsuarioLogeado.rol == 1">Ya tienes este producto</h2>
+            <h2 class="precios-little informacion" *ngIf="comprable == true && enCesta == true && rolUsuarioLogeado != null && rolUsuarioLogeado.rol == 1">Ya esta en tu cesta</h2>
+        </mat-card-actions>
+        <mat-card-actions class="controles-desc" *ngIf="producto.descuento != 0">
+            <h2 class="precios-little" *ngIf="comprable == true && enCesta == false">{{producto.precio - (producto.precio*producto.descuento)/100}}€<del class="separadorPrecios">{{producto.precio}}€</del></h2>
+        <button mat-raised-button color="primary" class="boton-precios" *ngIf="comprable == true && enCesta == false" (click)="agregarCesta()">Comprar</button>
+        <h2 class="precios-little informacion" *ngIf="comprable == false && enCesta == false && rolUsuarioLogeado != null && rolUsuarioLogeado.rol == 1">Ya tienes este producto</h2>
+        <h2 class="precios-little informacion" *ngIf="comprable == true && enCesta == true && rolUsuarioLogeado != null && rolUsuarioLogeado.rol == 1">Ya esta en tu cesta</h2>
+        </mat-card-actions>
+      </mat-card>
+
+</div>
+
+<div class="informacion-producto">
+
+    <div class="descripcion">
+        <h1 class="header-info">Sobre {{producto.nombre}}</h1>
+        <p>{{producto.descripcion}}</p>
+    </div>
+
+    <h1 class="header-info">Video</h1>
+    <iframe class="game_video" [src]="producto.video | safe"> </iframe>
+
+    <h1 class="header-info">Requisitos</h1>
+
+    <mat-tab-group mat-stretch-tabs class="product-tabs mat-elevation-z4" backgroundColor="primary">
+        <mat-tab label="Requisitos Mínimos" > 
+            <table class="tabla-requisitos">
+                <tr>
+                    <td>Sistema Operativo</td>
+                    <td>{{requisitos_min.so}}</td>
+                </tr>
+                <tr>
+                    <td>Procesador</td>
+                    <td>{{requisitos_min.procesador}}</td>
+                </tr>
+                <tr>
+                    <td>Memoria</td>
+                    <td>{{requisitos_min.memoria}}</td>
+                </tr>
+                <tr>
+                    <td>Gráficos </td>
+                    <td>{{requisitos_min.gpu}}</td>
+                </tr>
+                <tr>
+                    <td>Almacenamiento</td>
+                    <td>{{requisitos_min.almacenamiento}}</td>
+                </tr>
+            </table>
+        </mat-tab>
+        <mat-tab label="Requisitos Recomendados" > 
+            <table class="tabla-requisitos">
+                <tr>
+                    <td>Sistema Operativo</td>
+                    <td>{{requisitos_rec.so}}</td>
+                </tr>
+                <tr>
+                    <td>Procesador</td>
+                    <td>{{requisitos_rec.procesador}}</td>
+                </tr>
+                <tr>
+                    <td>Memoria</td>
+                    <td>{{requisitos_rec.memoria}}</td>
+                </tr>
+                <tr>
+                    <td>Gráficos </td>
+                    <td>{{requisitos_rec.gpu}}</td>
+                </tr>
+                <tr>
+                    <td>Almacenamiento</td>
+                    <td>{{requisitos_rec.almacenamiento}}</td>
+                </tr>
+            </table>
+        </mat-tab>
+    </mat-tab-group>
+
+
+    <div class="coment-form" *ngIf="comprable == false && rolUsuarioLogeado != null && rolUsuarioLogeado.rol == 1">
+
+        <h1 class="form-h1">¿Que te ha parecido {{producto.nombre}}</h1>
+
+        <form [formGroup] = "comentForm" class="form-text">
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Comentario</mat-label>
+                <textarea matInput  formControlName="texto" class="form-text"></textarea>
+                        <div *ngIf="comentForm.controls['texto'].invalid && (comentForm.controls['texto'].dirty || comentForm.controls['texto'].touched)">
+                            <ng-container *ngIf="comentForm.controls.texto.errors != undefined">
+                                <div class="errorValidacion" *ngIf="comentForm.controls.texto.errors.required">Debe introducir comentario</div>
+                                <div class="errorValidacion" *ngIf="comentForm.controls.texto.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                            </ng-container>
+                        </div>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="recomendacion">
+                <mat-label>¿Lo recomiendas?</mat-label>
+                <mat-select formControlName="options"  class="input-registro">
+                    <mat-option value="1">Si</mat-option>
+                    <mat-option value="0">No</mat-option>
+                </mat-select>
+                <div *ngIf="comentForm.controls['options'].invalid && (comentForm.controls['options'].dirty || comentForm.controls['options'].touched)">
+                    <ng-container *ngIf="comentForm.controls.options.errors != undefined">
+                        <div class="errorValidacion" *ngIf="comentForm.controls.options.errors.required">Debe seleccionar un valor</div>
+                    </ng-container>
+                </div>
+              </mat-form-field>
+
+            <button type="submit" class="btn btn-primary " [disabled]="comentForm.invalid" (click)="comentar()" *ngIf="comentarioUsuario.id == null">Enviar</button>
+            <button type="submit" class="btn btn-primary btnMod" (click)="eliminarComentario()" *ngIf="comentarioUsuario.id != null">Eliminar</button>
+            <button type="submit" class="btn btn-primary btnMod" [disabled]="comentForm.invalid" (click)="modificarComentario()" *ngIf="comentarioUsuario.id != null">Modificar</button>
+            
+
+
+        </form>
+    </div>
+
+
+<h1 class="header-info">Comentarios</h1>
+
+<div class="coment-box" *ngIf="listaComentarios?.length != 0">
+
+    <div class="card card-coment" *ngFor="let coment of listaComentarios">                
+    
+        <div class="card-info">
+          
+          <div class="name">
+            <p>{{coment.username}}</p> 
+          </div>
+          
+          <div class="review">
+            <p class="icon">
+                <i class="fa fa-thumbs-up fa-4x" *ngIf="coment.valoracion == 1"></i>
+                <i class="fa fa-thumbs-down fa-4x" *ngIf="coment.valoracion == 0"></i>
+            </p>  
+          </div>
+          
+          <hr class="hr-com">
+          
+          <div class="content">
+            <p>
+              {{coment.mensaje}}
+            </p>
+            <p><b>Fecha:</b> {{coment.fecha_creacion}}</p>
+          </div>
+        </div>
+      </div> 
+</div>
+
+<div *ngIf="listaComentarios?.length == 0" class="empty-div">
+    <mat-card class="empty-card">
+        <mat-card-content>
+            <h1>No hay comentarios, ¡Empieza tú!</h1>
+        </mat-card-content>
+      </mat-card>
+</div>
+             
+
+</div>

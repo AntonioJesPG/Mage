@@ -1,0 +1,41 @@
+<div class="full-height">
+
+    <main class="row">
+
+        <section class="col-md-12 panel">
+            <div class="container">
+                <div class="row">
+                    <h1 class="col-12 text-center h1-registro">Editar Ticket</h1>
+                </div>
+                <div class="row">
+                <form [formGroup] = "ticketForm" class="col-12 col-md-8 offset-md-2">
+
+                    <mat-form-field appearance="outline">
+                            <mat-label>Mensaje</mat-label>
+                            <input matInput  formControlName="mensaje" class="input-registro">
+                            <div *ngIf="ticketForm.controls['mensaje'].invalid && (ticketForm.controls['mensaje'].dirty || ticketForm.controls['mensaje'].touched)">
+                                <ng-container *ngIf="ticketForm.controls.mensaje.errors != undefined">
+                                    <div class="errorValidacion" *ngIf="ticketForm.controls.mensaje.errors.required">Debe introducir un mensaje</div>
+                                    <div class="errorValidacion" *ngIf="ticketForm.controls.mensaje.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                                </ng-container>
+                            </div>
+                    </mat-form-field>
+                    
+                        <div class="form-group text-center pt-4">
+                            <button type="submit" class="btn btn-primary btn-login" [disabled]="ticketForm.invalid" (click)="modificarTicket()">Modificar</button>
+                        </div>
+    
+                        <div class="col-12 links text-center">
+                            <div>
+                                <button class="btn btn-primary btn-login" (click)="irATickets()">Volver</button>
+                            </div>                   
+                        </div>
+                </form>
+            </div>
+    </div>
+    </section>
+    
+    <div id="respuestaDelServidor"></div>
+    </main>
+    
+    </div>

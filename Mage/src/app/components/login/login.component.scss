@@ -1,0 +1,139 @@
+.full-height {
+    height: 80%;
+  }
+
+.input-login{
+    height: 30px;
+}
+
+section{
+    max-height: 100%;
+}
+
+.align-self-center{
+    max-height: 100% !important;
+}
+
+.logo{
+    max-height: 300px;
+}
+
+.errorValidacion{
+    margin-top: 5px;
+    color: orangered;
+}
+mat-form-field{
+    width:100%;
+}
+
+.mat-form-field-wrapper{
+    padding-bottom: 0 !important;
+}
+
+//AA
+.row{
+    margin-left: 0;
+    margin-right: 0;
+    height: 100%;
+}
+
+.panel-left {
+    //display: flex !important;
+    align-items: center;
+    background-color: #4E4E50;
+    height: 100%;
+}
+
+.panel-left h1{
+    margin-top: 50px;
+}
+
+.panel-left img{
+    width: 50%;
+}
+
+.panel-right {
+    //display: flex !important;
+    align-items: center;
+    background-color: white;
+    
+}
+
+.col-md-6{
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.h1-registro {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 50px;
+}
+.h1-login {
+    color: #1A1A1D;
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 50px;
+}
+
+.description {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.btn.btn-primary {
+    border: 0 !important;
+    border-radius: 50px !important;
+    background-color: #1A1A1D ;
+    padding: 15px 40px !important;
+    color: #fff ;
+    font-weight: 400 !important;
+}
+
+.btn-registro{
+    background-color: #fff !important;
+    color: #1A1A1D !important;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-registro:hover{
+    background-color: #1A1A1D !important;
+    color: #fff !important;
+}
+
+.btn:hover{
+    background-color: #4E4E50 ;
+}
+
+.links a {
+    color: #14274E;
+    
+}
+
+.registro-a{
+    display: none;
+}
+
+.recuperar_pass{
+    display:none;
+}
+
+@media only screen and (max-width: 767px) {
+    .panel-left {
+        display: none !important;
+    }
+
+    .registro-a{
+        margin-top: 5px;
+        display:inline-block;
+    }
+
+    .full-height{
+        height: 100%;
+    }
+  }

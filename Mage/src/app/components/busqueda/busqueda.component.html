@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="listado" *ngIf="productos?.length != 0">
+    <div class="card cardArticulo" *ngFor="let producto of productos">
+        <a (click)="irAProducto(producto.id)">
+          <div class="row no-gutters">
+            <div class="col-md-12 col-lg-4 producto-img">
+              <app-imagen-producto [imagen]="producto"></app-imagen-producto>
+            </div>
+            <div class="col-md-12 col-lg-8 producto-info">
+              <div class="card-body producto-info">
+                <h3 class="card-title indexNoticiaTitulo">{{producto.nombre}}</h3>
+                <p class="card-text indexNoticiaTexto">{{producto.descripcion}}</p>
+                <h2 class="card-price precios-card" *ngIf="producto.descuento == 0">{{producto.precio}}€</h2>
+              <h2 class="card-price precios-card" *ngIf="producto.descuento != 0">{{producto.precio - (producto.precio*producto.descuento)/100}}€<del class="separadorPrecios">{{producto.precio}}€</del></h2>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div *ngIf="productos?.length == 1" class="spacer">
+    </div>
+
+    <div class="empty-div" *ngIf="productos?.length == 0">
+        <mat-card class="empty-card">
+            <mat-card-content>
+                <h1>No se han encontrado productos</h1>
+            </mat-card-content>
+          </mat-card>
+    </div>
+</div>

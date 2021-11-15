@@ -1,0 +1,170 @@
+.card-user{
+    margin-top: 5%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.h1-home{
+    text-align: center;
+    margin-top: 2%;
+    font-size: 50px;
+  }
+
+.errorValidacion{
+    margin-top: 5px;
+    color: orangered;
+}
+.row{
+    margin-right: 0px!important;
+}
+
+mat-form-field{
+    margin-left: 2%;
+}
+
+.complete-row mat-form-field{
+    width: 100% !important;
+}
+
+.double-row mat-form-field{
+    width: 48% !important;
+}
+
+.btn.btn-primary {
+    border: 0 !important;
+    border-radius: 50px !important;
+    background-color: #1A1A1D ;
+    padding: 15px 40px !important;
+    color: #fff ;
+    font-weight: 400 !important;
+}
+
+.btn-guardar{
+    margin-left: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    .double-row mat-form-field{
+        width: 100% !important;
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+    .box-wrapper{
+        width: 80% !important;
+        margin-left: 10% !important;
+        margin-right: 10% !important;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1300px) {
+    .box-wrapper{
+        width: 45% !important;
+        margin-left: 2.5%;
+        margin-top: 2%;
+    }
+}
+
+//Tarjetas de productos
+.products-div{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+
+.box-wrapper {
+    width: 30%;
+    margin-left: 2.5%;
+    margin-top: 2%;
+    padding: 0;
+    display: inline-block;
+	background-color: #fff;
+	overflow: hidden;
+	box-shadow: 0px 5px 43px rgba( 0, 0, 0, 0.48 );
+	text-align: center;
+    border-radius: 10px;
+
+  img {
+		max-width: 100%;
+	}
+}
+
+.title {
+  font-size: 25px;
+  white-space:pre-line;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  margin-top: 5px;
+}
+
+.box-content{
+  position: relative;
+  z-index: 1;
+  height: 100px;
+  
+    &:before {
+    content: '';
+    width: 200%;
+    height: 100px;
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    transform: rotate(-8deg);
+    top: -50px;
+    left: -10%;
+    z-index: -1;
+  }
+  
+  .buy {
+    display: block;
+    top: -80px;
+    right: 30px;
+    z-index: 2;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+  }
+
+  .icon-span {
+    width: 70px;
+    height: 70px;
+    background-color: #950740;
+    display: block;
+    border-radius: 50%;
+    position: absolute; 
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+  }
+
+  .icono{
+      padding-top: 15px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 35px !important;
+  }
+}
+
+.empty-div{
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 80%;
+    margin-bottom: 50px;
+}
+
+.empty-card{
+    margin-bottom: 50px;
+    background: #1A1A1D;
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

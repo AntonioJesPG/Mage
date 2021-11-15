@@ -1,0 +1,51 @@
+<div *ngIf="data.tipoDialogo == dialogTypesClass.ERROR">
+    <h1 mat-dialog-title><mat-icon aria-hidden="false" aria-label="Error">error_outline</mat-icon></h1>
+    
+    <div mat-dialog-content>{{data.texto}}</div>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary" mat-dialog-close>Cerrar</button>
+    </div>
+</div>
+
+
+<div *ngIf="data.tipoDialogo == dialogTypesClass.INFORMACION">
+  <h1 mat-dialog-title><mat-icon aria-hidden="false" aria-label="Info">info</mat-icon></h1>
+  <div mat-dialog-content>
+    <div mat-dialog-content>{{data.texto}}</div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" [mat-dialog-close]="dialogTypesClass.RESPUESTA_ACEPTAR" cdkFocusInitial>Aceptar</button>
+  </div>
+</div>
+
+<div *ngIf="data.tipoDialogo == dialogTypesClass.VIDEO" class="video_dialog">
+    <iframe class="game_video" [src]="data.texto | safe"> </iframe>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" [mat-dialog-close]="dialogTypesClass.RESPUESTA_ACEPTAR" cdkFocusInitial>Aceptar</button>
+  </div>
+</div>
+
+<div *ngIf="data.tipoDialogo == dialogTypesClass.PRODUCTO_DESC" >
+  <div mat-dialog-content>
+    <div mat-dialog-content>{{data.texto}}</div>
+  </div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="dialogTypesClass.RESPUESTA_ACEPTAR" cdkFocusInitial>Aceptar</button>
+</div>
+</div>
+
+<div *ngIf="data.tipoDialogo == dialogTypesClass.PEDIDO_TABLA" >
+  <app-tabla-linea-pedido [codigo]="data.texto"></app-tabla-linea-pedido>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="dialogTypesClass.RESPUESTA_ACEPTAR" cdkFocusInitial>Aceptar</button>
+</div>
+</div>
+
+<div *ngIf="data.tipoDialogo == dialogTypesClass.DESCARGA" >
+  <div mat-dialog-content>
+    <div mat-dialog-content><img src="https://i.pinimg.com/originals/b5/91/b4/b591b46877521e6045ba61012630e33b.gif"></div>
+  </div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="dialogTypesClass.RESPUESTA_ACEPTAR" cdkFocusInitial>Aceptar</button>
+</div>
+</div>

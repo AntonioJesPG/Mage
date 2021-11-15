@@ -1,0 +1,323 @@
+
+    .product-card{
+        box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+        background: rgba(255, 255, 255, 0.90);
+        width: 80%;
+        text-align: center;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 5em auto;
+        display: flex;
+    }
+
+    .category{
+        margin-top: 5% !important;
+        margin-bottom: 5% !important;
+        
+    }
+
+    .controles{
+        margin-left: 55% !important;
+    }
+    .controles-desc{
+        margin-left: 42% !important;
+    }
+
+    .precios-little{
+        display: inline-block;
+        margin-right: 4%;
+    }
+
+    .informacion{
+        width: 25%;
+        background: #950740;
+        color: white;
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        border-radius: 20px;
+    }
+
+    .boton-precios{
+        display: inline-block;
+    }
+
+    .informacion-producto{
+        margin-left:20%;
+        margin-right: 20%;
+    }
+
+    .game_video{
+        width:100%;
+        height: 500px;
+    }
+
+    .external-img{
+        display:none;
+    }
+
+    .separadorPrecios{
+        margin-left: 10px;
+      }
+
+      .header-info{
+          margin-top: 5%;
+          margin-bottom: 5%;
+          text-align: center;
+          font-size: 34px;
+      }
+
+      .tabla-requisitos{
+          font-size: 16px;
+          width: 100%;
+          text-align: center;
+      }
+
+      .coment-form{
+        //background-color: #1A1A1D;
+        margin-top: 5%;
+        height: 400px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    }
+
+    .coment-box{
+      margin-bottom: 50px;
+    }
+
+      .form-h1{
+          text-align: center;
+        //color:white;
+      }
+
+      .form-text{
+        width:80% !important;
+        height: 150px;
+        margin-left: 10% !important;
+        margin-right: 10%;
+      }
+
+      .mat-form-field{
+          width:80% !important;
+          margin-left: 10%;
+          margin-right: 10%;
+      }
+
+      .mat-radio-group{
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+
+      .errorValidacion{
+        margin-top: 5px;
+        color: orangered;
+    }
+
+    .btn.btn-primary {
+        display:inline-block;
+        margin-left: 40% ;
+        border: 0 !important;
+        background-color: #1A1A1D ;
+        color: #fff ;
+        font-weight: 200 !important;
+    }
+
+    .btnMod{
+      margin-left: 20% !important
+    }
+    
+    .btn:hover{
+        background-color: #4E4E50 ;
+    }
+
+    .empty-div{
+      margin-top: 1%;
+      width: 100%;
+  }
+  
+  .empty-card{
+      margin-bottom: 50px;
+      background: #1A1A1D;
+      color: white;
+      text-align: center;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  .empty-img{
+      margin-left: auto;
+      margin-right: auto;
+      width:200px;
+  }
+
+    @media only screen and (max-width: 1260px) {
+        .cardphoto{
+            display:none;
+        }
+
+        .product-card{
+            margin-top: 0;
+            width: 100%;
+            display:inline-block;
+        }
+
+        .external-img{
+            display:inline-block;
+        }
+
+        .informacion{
+            width: 70%;
+            position:relative;
+        }
+        
+        .coment-form{
+            height: 450px;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+       
+        .coment-form{
+            height: 500px;
+        }
+
+        .btnMod{
+          margin-bottom: 10px;
+        }
+
+        .product-card{
+            display: none;
+        }
+
+        .product-card-little {
+            display:inline-block !important;
+            margin-left: 10% !important;
+            margin-right: 10% !important;
+            width: 80% !important;
+            margin-top: 5%;
+            box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+        }
+
+        .descripcion{
+            display:none;
+        }
+
+        .external-img{
+            display:none;
+        }
+
+        .informacion{
+            width: 90%;
+            text-align: center;
+            font-size: 15px;
+        }
+
+
+    }
+
+    @media only screen and (max-width: 450px) {
+      .coment-form{
+        height: 550px;
+    }
+  }
+
+.product-card-little {
+    display:none;
+    max-width: 400px;
+    }
+
+
+    .cardphoto {
+    width : 150%;
+    min-width: 60%;
+    max-width: 60%;
+    max-height: 350px;
+    }
+
+
+    .card-subtitle{
+        color:grey;
+    }
+      
+.h1-home{
+    text-align: center;
+    margin-bottom: 3%;
+    font-size: 50px;
+  }
+  
+  .cardphoto-img{
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+  }
+  
+  .card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+
+
+  .card-coment{    
+    display:block;
+    position:relative;
+    padding:20px;
+    background: #1A1A1D;
+    color:white;
+  }
+
+  .hr-com{
+    border-bottom: 1px solid white;
+  }
+  
+  .card-coment{
+    .card-info{    
+      margin-left:20px;    
+    }
+  }
+  
+  
+  .card-coment{
+    .card-info{
+      .name{
+        font-size:28px;      
+        display:inline-block;          
+      }    
+    }
+  }
+
+  .i{
+    color:white;
+  }
+  
+  .card-coment{
+    .card-info{
+      .review{
+        display:inline-block;
+        vertical-align:top;  
+          
+        @media(min-width:500px){
+          float:right;        
+          }    
+        .icon{         
+          width:50px;
+          i{          
+            font-size:30px;
+            text-align:center;
+            width:100%;  
+            z-index:1;
+          }        
+        }
+      }
+    }
+  }
+  
+  .card-coment{
+    .card-info{
+      hr{
+        margin:0 0 15px;
+      }
+    }
+  }

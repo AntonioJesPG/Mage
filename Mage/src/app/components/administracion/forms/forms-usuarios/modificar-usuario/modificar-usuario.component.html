@@ -1,0 +1,110 @@
+<div class="full-height">
+
+    <main class="row">
+
+        <section class="col-md-12 panel">
+            <div class="container">
+                <div class="row">
+                    <h1 class="col-12 text-center h1-registro">Modificar usuario</h1>
+                </div>
+                <div class="row">
+                <form [formGroup] = "registroForm" class="col-12 col-md-8 offset-md-2">
+
+                    <mat-form-field appearance="outline">
+                            <mat-label>Nombre de usuario</mat-label>
+                            <input matInput  formControlName="username" class="input-registro">
+                            <div *ngIf="registroForm.controls['username'].invalid && (registroForm.controls['username'].dirty || registroForm.controls['username'].touched)">
+                                <ng-container *ngIf="registroForm.controls.username.errors != undefined">
+                                    <div class="errorValidacion" *ngIf="registroForm.controls.username.errors.required">Debe introducir un nombre de usuario</div>
+                                    <div class="errorValidacion" *ngIf="registroForm.controls.username.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                                </ng-container>
+                            </div>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="outline">
+                            <mat-label>Nombre</mat-label>
+                            <input matInput formControlName="nombre" class="input-registro">
+                            <div *ngIf="registroForm.controls['nombre'].invalid && (registroForm.controls['nombre'].dirty || registroForm.controls['nombre'].touched)">
+                                <ng-container *ngIf="registroForm.controls.nombre.errors != undefined">
+                                    <div class="errorValidacion" *ngIf="registroForm.controls.nombre.errors.required">Debe introducir un nombre</div>
+                                    <div class="errorValidacion" *ngIf="registroForm.controls.nombre.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                                </ng-container>
+                            </div>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                            <mat-label>Primer apellido</mat-label>
+                            <input matInput  formControlName="primer_apellido" class="input-registro">
+                            <div *ngIf="registroForm.controls['primer_apellido'].invalid && (registroForm.controls['primer_apellido'].dirty || registroForm.controls['primer_apellido'].touched)">
+                                <ng-container *ngIf="registroForm.controls.primer_apellido.errors != undefined">
+                                    <div class="errorValidacion" *ngIf="registroForm.controls.primer_apellido.errors.required">Debe introducir un primer apellido</div>
+                                    <div class="errorValidacion" *ngIf="registroForm.controls.primer_apellido.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                                </ng-container>
+                            </div>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                            <mat-label>Segundo Apellido</mat-label>
+                            <input matInput  formControlName="segundo_apellido" class="input-registro">
+                            <div *ngIf="registroForm.controls['segundo_apellido'].invalid && (registroForm.controls['segundo_apellido'].dirty || registroForm.controls['segundo_apellido'].touched)">
+                                <ng-container *ngIf="registroForm.controls.segundo_apellido.errors != undefined">
+                                    <div class="errorValidacion" *ngIf="registroForm.controls.segundo_apellido.errors.required">Debe introducir un segundo apellido</div>
+                                    <div class="errorValidacion" *ngIf="registroForm.controls.segundo_apellido.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                                </ng-container>
+                            </div>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                            <mat-label>DNI</mat-label>
+                            <input matInput  formControlName="dni" class="input-registro">
+                            <div *ngIf="registroForm.controls['dni'].invalid && (registroForm.controls['dni'].dirty || registroForm.controls['dni'].touched)">
+                                <ng-container *ngIf="registroForm.controls.dni.errors != undefined">
+                                    <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.required">Debe introducir un dni</div>
+                                    <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                                </ng-container>
+                            </div>
+                    </mat-form-field>
+
+                    <mat-form-field *ngIf="rolUsuarioLogeado.rol == 4" appearance="outline">
+                        <mat-label>Rol</mat-label>
+                        <mat-select formControlName="rol"  class="input-registro">
+                            <mat-option *ngFor="let r of roles" [value]="r.id">{{r.descripcion}}</mat-option>
+                        </mat-select>
+                        <div *ngIf="registroForm.controls['rol'].invalid && (registroForm.controls['rol'].dirty || registroForm.controls['rol'].touched)">
+                            <ng-container *ngIf="registroForm.controls.rol.errors != undefined">
+                                <div class="errorValidacion" *ngIf="registroForm.controls.rol.errors.required">Debe introducir una categoria</div>
+                            </ng-container>
+                        </div>
+                </mat-form-field>
+
+                <mat-form-field *ngIf="rolUsuarioLogeado.rol == 3" appearance="outline">
+                    <mat-label>Rol</mat-label>
+                    <mat-select formControlName="rol"  class="input-registro">
+                        <mat-option  [value]="1">usuario</mat-option>
+                        <mat-option  [value]="2">asistencia</mat-option>
+                    </mat-select>
+                    <div *ngIf="registroForm.controls['rol'].invalid && (registroForm.controls['rol'].dirty || registroForm.controls['rol'].touched)">
+                        <ng-container *ngIf="registroForm.controls.rol.errors != undefined">
+                            <div class="errorValidacion" *ngIf="registroForm.controls.rol.errors.required">Debe introducir una categoria</div>
+                        </ng-container>
+                    </div>
+            </mat-form-field>
+                    
+                        <div class="form-group text-center pt-4">
+                            <button type="submit" class="btn btn-primary btn-login" [disabled]="registroForm.invalid" (click)="modificarUsuario()">Modificar</button>
+                        </div>
+    
+                        <div class="col-12 links text-center">
+                            <div>
+                                <button class="btn btn-primary btn-login" (click)="irAUsuarios()">Volver</button>
+                            </div>                   
+                        </div>
+                </form>
+            </div>
+    </div>
+    </section>
+    
+    <div id="respuestaDelServidor"></div>
+    </main>
+    
+    </div>

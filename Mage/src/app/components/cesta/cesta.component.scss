@@ -1,0 +1,148 @@
+.contenedor{
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.tablaProducto{
+    margin-top: 2%!important;
+}
+
+.mat-table{
+   margin: auto;
+}
+
+.mat-toolbar{
+    background:  white !important;
+}
+
+.spacer{
+    height: 50px;
+}
+
+
+th.mat-header-cell{
+    width:15%;
+    //border-right: 1px solid white !important;
+}
+
+td.mat-cell {
+    padding: 16px 0;
+    border-bottom: 1px solid black !important;
+   }
+
+td, th {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.game_video:hover{
+    width: 500px;
+    height: 500px;
+}
+
+.tablaProducto{
+    overflow-x:auto;
+    border: 2px solid #1A1A1D;
+}
+.img-user{
+    max-width: 100px;
+}
+
+  th{
+      background-color: #1A1A1D;
+      color: white;
+      font-size: large;
+  }
+
+  .botonFuncion{
+    border-style:  hidden;
+    border-radius: 8px;
+    background: #6F2232;
+    color: white;
+    display:inline-block;
+    margin-left: 1px;
+  }
+
+  .td_cell{
+    white-space: nowrap;
+  }
+
+  .botonFuncion:hover{
+    background: #950740;
+  }
+
+  .contenedorTabla{
+      width: 80%;
+      margin: auto;
+  }
+
+.mat-column-Funcion1{
+    width:10%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.mat-column-Funcion2{
+    margin-left: auto;
+}
+
+.botonCrear{
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.buttonFooter{
+    width: 100%;
+}
+
+.botonCompra{
+    margin-left: auto !important;
+}
+
+.imagen-producto{
+    width:50%;
+    height: 50%;
+    margin-left: 25%;
+}
+
+.mat-footer-row{
+    background: #1A1A1D !important;
+}
+
+.mat-footer-cell{
+    color : white !important;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.empty-div{
+    margin-top: 1%;
+    width: 100%;
+}
+
+.empty-card{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.empty-img{
+    margin-left: auto;
+    margin-right: auto;
+    width:200px;
+}
+
+.boton-basic{
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+    .empty-card{
+        width: 100%;
+    }
+
+    .boton-basic-icon{
+        display:none;
+    }
+}

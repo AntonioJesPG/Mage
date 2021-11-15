@@ -1,0 +1,251 @@
+<div class="full-height">
+    <div class="container">
+  <mat-horizontal-stepper linear #stepper [linear]='false'>
+    <mat-step [stepControl]="formDatosProducto">
+      <form [formGroup]="formDatosProducto">
+        <ng-template matStepLabel class="label_step">Datos del producto</ng-template>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="nombre"  required>
+          <div *ngIf="formDatosProducto.controls['nombre'].invalid && (formDatosProducto.controls['nombre'].dirty || formDatosProducto.controls['nombre'].touched)">
+            <ng-container *ngIf="formDatosProducto.controls.nombre.errors != undefined">
+                <div class="errorValidacion" *ngIf="formDatosProducto.controls.nombre.errors.required">Debe introducir un nombre</div>
+                <div class="errorValidacion" *ngIf="formDatosProducto.controls.nombre.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+            </ng-container>
+        </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Precio</mat-label>
+            <input type="number" min="0" matInput formControlName="precio" placeholder="60" required>
+            <div *ngIf="formDatosProducto.controls['precio'].invalid && (formDatosProducto.controls['precio'].dirty || formDatosProducto.controls['precio'].touched)">
+                <ng-container *ngIf="formDatosProducto.controls.precio.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formDatosProducto.controls.precio.errors.required">Debe introducir un precio</div>
+                </ng-container>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="descripcion"  required></textarea>
+            <div *ngIf="formDatosProducto.controls['descripcion'].invalid && (formDatosProducto.controls['descripcion'].dirty || formDatosProducto.controls['descripcion'].touched)">
+                <ng-container *ngIf="formDatosProducto.controls.descripcion.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formDatosProducto.controls.descripcion.errors.required">Debe introducir una descripcion</div>
+                    <div class="errorValidacion" *ngIf="formDatosProducto.controls.descripcion.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                </ng-container>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Video</mat-label>
+            <input matInput formControlName="video" required>
+            <div *ngIf="formDatosProducto.controls['video'].invalid && (formDatosProducto.controls['video'].dirty || formDatosProducto.controls['video'].touched)">
+                <ng-container *ngIf="formDatosProducto.controls.video.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formDatosProducto.controls.video.errors.required">Debe introducir un video</div>
+                    <div class="errorValidacion" *ngIf="formDatosProducto.controls.video.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                </ng-container>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha de salida</mat-label>
+            <input type="date" matInput formControlName="fecha_salida"  required>
+            <div *ngIf="formDatosProducto.controls['fecha_salida'].invalid && (formDatosProducto.controls['fecha_salida'].dirty || formDatosProducto.controls['fecha_salida'].touched)">
+                <ng-container *ngIf="formDatosProducto.controls.fecha_salida.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formDatosProducto.controls.fecha_salida.errors.required">Debe introducir una fecha de salida</div>
+                </ng-container>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Desarrolladora</mat-label>
+            <input matInput formControlName="desarrolladora"  required>
+            <div *ngIf="formDatosProducto.controls['desarrolladora'].invalid && (formDatosProducto.controls['desarrolladora'].dirty || formDatosProducto.controls['desarrolladora'].touched)">
+                <ng-container *ngIf="formDatosProducto.controls.desarrolladora.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formDatosProducto.controls.desarrolladora.errors.required">Debe introducir una desarrolladora</div>
+                    <div class="errorValidacion" *ngIf="formDatosProducto.controls.desarrolladora.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                </ng-container>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Descuento</mat-label>
+            <input type="number" min="0" max="95" matInput formControlName="descuento" placeholder="60" required>
+            <div *ngIf="formDatosProducto.controls['descuento'].invalid && (formDatosProducto.controls['descuento'].dirty || formDatosProducto.controls['descuento'].touched)">
+                <ng-container *ngIf="formDatosProducto.controls.descuento.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formDatosProducto.controls.descuento.errors.required">Debe introducir un precio</div>
+                </ng-container>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Categoria</mat-label>
+            <mat-select formControlName="categoria"  class="input-registro">
+                <mat-option *ngFor="let c of categorias" [value]="c.id">{{c.descripcion}}</mat-option>
+            </mat-select>
+            <div *ngIf="formDatosProducto.controls['categoria'].invalid && (formDatosProducto.controls['categoria'].dirty || formDatosProducto.controls['categoria'].touched)">
+                <ng-container *ngIf="formDatosProducto.controls.categoria.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formDatosProducto.controls.categoria.errors.required">Debe introducir una categoria</div>
+                </ng-container>
+            </div>
+          </mat-form-field>
+        <div>
+            <button mat-raised-button color="primary" class="botonCrear" (click)="volverProductos()">
+                Volver
+            </button>
+          <button mat-raised-button color="primary" matStepperNext class="botonSiguiente">Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="formRequisitos">
+      <form [formGroup]="formRequisitos">
+        <ng-template matStepLabel class="label_step">Requisitos</ng-template>
+
+        <p>Requisitos mínimos</p>
+        <mat-form-field appearance="outline">
+          <mat-label>Sistema Operativo</mat-label>
+          <input matInput formControlName="so_min" 
+                 required>
+            <div *ngIf="formRequisitos.controls['so_min'].invalid && (formRequisitos.controls['so_min'].dirty || formRequisitos.controls['so_min'].touched)">
+            <ng-container *ngIf="formRequisitos.controls.so_min.errors != undefined">
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.so_min.errors.required">Debe introducir un sistema operativo</div>
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.so_min.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+            </ng-container>
+            </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Procesador</mat-label>
+            <input matInput formControlName="procesador_min" 
+                   required>
+            <div *ngIf="formRequisitos.controls['procesador_min'].invalid && (formRequisitos.controls['procesador_min'].dirty || formRequisitos.controls['procesador_min'].touched)">
+            <ng-container *ngIf="formRequisitos.controls.procesador_min.errors != undefined">
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.procesador_min.errors.required">Debe introducir un procesador</div>
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.procesador_min.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+            </ng-container>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Memoria</mat-label>
+            <input matInput formControlName="memoria_min" 
+                   required>
+            <div *ngIf="formRequisitos.controls['memoria_min'].invalid && (formRequisitos.controls['memoria_min'].dirty || formRequisitos.controls['memoria_min'].touched)">
+            <ng-container *ngIf="formRequisitos.controls.memoria_min.errors != undefined">
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.memoria_min.errors.required">Debe introducir una memoria</div>
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.memoria_min.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+            </ng-container>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>GPU</mat-label>
+            <input matInput formControlName="gpu_min" 
+                   required>
+            <div *ngIf="formRequisitos.controls['gpu_min'].invalid && (formRequisitos.controls['gpu_min'].dirty || formRequisitos.controls['gpu_min'].touched)">
+            <ng-container *ngIf="formRequisitos.controls.gpu_min.errors != undefined">
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.gpu_min.errors.required">Debe introducir una gpu</div>
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.gpu_min.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+            </ng-container>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Almacenamiento</mat-label>
+            <input matInput formControlName="almacenamiento_min" 
+                   required>
+            <div *ngIf="formRequisitos.controls['almacenamiento_min'].invalid && (formRequisitos.controls['almacenamiento_min'].dirty || formRequisitos.controls['almacenamiento_min'].touched)">
+            <ng-container *ngIf="formRequisitos.controls.almacenamiento_min.errors != undefined">
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.almacenamiento_min.errors.required">Debe introducir el almacenamiento</div>
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.almacenamiento_min.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+            </ng-container>
+            </div>
+          </mat-form-field>
+
+          <p>Requisitos recomendados</p>
+          <mat-form-field appearance="outline">
+            <mat-label>Sistema Operativo</mat-label>
+            <input matInput formControlName="so_max" 
+                   required>
+            <div *ngIf="formRequisitos.controls['so_max'].invalid && (formRequisitos.controls['so_max'].dirty || formRequisitos.controls['so_max'].touched)">
+            <ng-container *ngIf="formRequisitos.controls.so_max.errors != undefined">
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.so_max.errors.required">Debe introducir un sistema operativo</div>
+                <div class="errorValidacion" *ngIf="formRequisitos.controls.so_max.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+            </ng-container>
+            </div>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+              <mat-label>Procesador</mat-label>
+              <input matInput formControlName="procesador_max" 
+                     required>
+                <div *ngIf="formRequisitos.controls['procesador_max'].invalid && (formRequisitos.controls['procesador_max'].dirty || formRequisitos.controls['procesador_max'].touched)">
+                <ng-container *ngIf="formRequisitos.controls.procesador_max.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formRequisitos.controls.procesador_max.errors.required">Debe introducir un procesador</div>
+                    <div class="errorValidacion" *ngIf="formRequisitos.controls.procesador_max.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                </ng-container>
+                </div>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Memoria</mat-label>
+              <input matInput formControlName="memoria_max" 
+                     required>
+                <div *ngIf="formRequisitos.controls['memoria_max'].invalid && (formRequisitos.controls['memoria_max'].dirty || formRequisitos.controls['memoria_max'].touched)">
+                <ng-container *ngIf="formRequisitos.controls.memoria_max.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formRequisitos.controls.memoria_max.errors.required">Debe introducir una memoria</div>
+                    <div class="errorValidacion" *ngIf="formRequisitos.controls.memoria_max.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                </ng-container>
+                </div>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>GPU</mat-label>
+              <input matInput formControlName="gpu_max" 
+                     required>
+                <div *ngIf="formRequisitos.controls['gpu_max'].invalid && (formRequisitos.controls['gpu_max'].dirty || formRequisitos.controls['gpu_max'].touched)">
+                <ng-container *ngIf="formRequisitos.controls.gpu_max.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formRequisitos.controls.gpu_max.errors.required">Debe introducir una gpu</div>
+                    <div class="errorValidacion" *ngIf="formRequisitos.controls.gpu_max.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                </ng-container>
+                </div>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Almacenamiento</mat-label>
+              <input matInput formControlName="almacenamiento_max"
+                     required>
+                <div *ngIf="formRequisitos.controls['almacenamiento_max'].invalid && (formRequisitos.controls['almacenamiento_max'].dirty || formRequisitos.controls['almacenamiento_max'].touched)">
+                <ng-container *ngIf="formRequisitos.controls.almacenamiento_max.errors != undefined">
+                    <div class="errorValidacion" *ngIf="formRequisitos.controls.almacenamiento_max.errors.required">Debe introducir el almacenamiento</div>
+                    <div class="errorValidacion" *ngIf="formRequisitos.controls.almacenamiento_max.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                </ng-container>
+                </div>
+            </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>Anterior</button>
+          <button mat-raised-button color="primary" matStepperNext class="botonSiguiente">Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+        <form [formGroup]="formImagenes">
+            <ng-template matStepLabel class="label_step">Imagen</ng-template>
+
+            <div class="mid_div">
+                <button mat-button (click)="fileInput.click()">
+                    <app-imagen-producto [imagen]="imagen"></app-imagen-producto>
+                </button>
+                <input hidden (change)="agregarImagenProducto()" formControlName="imagen" #fileInput type="file" id="file">
+            </div>
+            <label class="text_centro">Pulsa en la imagen para cambiarla</label>
+        </form>
+      <div>
+        <button mat-raised-button color="primary" matStepperPrevious>Anterior</button>
+        <button mat-raised-button color="primary" [disabled]="formImagenes.invalid" class="botonSiguiente" (click)="modificarProducto()">Modificar producto</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+    </div>
+  </div>

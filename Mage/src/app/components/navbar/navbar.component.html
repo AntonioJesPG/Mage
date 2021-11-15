@@ -1,0 +1,115 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button id="func" class="function" (click)="ocultarMenu()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <button mat-icon-button id="logo"  color="secondary" (click)="irAIndex()">  <!--(click)="navegarIndex()">-->
+            <img class="img-nav" alt="mage_logo" src="../../../assets/50x50 blanco.png">
+            <span id=titulo>Mage</span>
+        </button>
+
+        <span class="spacer"></span>
+        <div class="contenido botones-gestion">
+            <button mat-icon-button  class="botonGestion" *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 3 || usuarioLogeado.id_rol == 4)" (click)="irGestion()">  
+                Gestión
+            </button>
+
+            <button mat-icon-button  class="botonGestion botonSoporte" *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 2)" (click)="irAsistencia()">  
+                Asistencia
+            </button>
+            <button mat-icon-button  class="botonGestion" (click)="irACatalogo()">  
+                Catálogo
+            </button>
+        </div>
+
+            <div class="col-sm-3 col-md-3 contenido">
+                <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <label class="hidden-text" for="q">Buscar</label>
+                    <input type="text" class="form-control " placeholder="Buscar" name="q" id="q">
+                    <div class="input-group-btn">
+                        <button class="btn" type="submit" (click)="buscarProducto()"><i class="fa fa-search"></i><div class="hidden-text">Pulsa para buscar</div></button>
+                    </div>
+                </div>
+                </form>
+            </div>
+
+            <button mat-icon-button  class="botonGestion" *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 1)" (click)="irACesta()" >  
+                <mat-icon [matBadge]="cantidadCestaUsuario" matBadgeColor="accent">shopping_cart</mat-icon>
+            </button>
+
+            <div class="contenido">
+                <button mat-icon-button *ngIf="usuarioLogeado == null" (click)="irALogin()">  
+                    Login
+                </button>
+            <ng-container>
+                <button mat-button [matMenuTriggerFor]="menu" *ngIf="usuarioLogeado != null">  
+                    {{usuarioLogeado.username}}
+                </button>
+                <mat-menu #menu="matMenu" class="menu">
+                    <button mat-menu-item *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 1)" (click)="irAPerfil()">
+                        <mat-icon class="mat-menu-icon">account_circle</mat-icon>Perfil
+                    </button>
+                    <button mat-menu-item *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 1)" (click)="irAHistorial()">
+                        <mat-icon class="mat-menu-icon">bookmark border icon</mat-icon> Historial
+                    </button>
+                    <button mat-menu-item *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 1)" (click)="irATickets()">
+                        <mat-icon class="mat-menu-icon">contact_support</mat-icon> Asistencia
+                    </button>
+                    <button mat-menu-item (click)="cerrarSesion()">
+                        <mat-icon class="mat-menu-icon">exit_to_app</mat-icon>Cerrar Sesión
+                    </button>
+                </mat-menu>
+            </ng-container>
+            </div>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row class="content-row content-row-func" *ngIf="menuOculto == false">
+        <form class="navbar-form" role="search">
+            <div class="input-group">
+                <label class="hidden-text" for="q">Buscar</label>
+                <input type="text" class="form-control " placeholder="Buscar" name="q" id="q">
+                <div class="input-group-btn">
+                    <button class="btn" type="submit" (click)="buscarProducto()"><i class="fa fa-search"></i><div class="hidden-text">Pulsa para buscar</div></button>
+                </div>
+            </div>
+            </form>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row class="content-row content-row-func" *ngIf="usuarioLogeado != null && usuarioLogeado.id_rol != 1 && menuOculto == false">
+        <button mat-icon-button  class="botonGestion" *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 3 || usuarioLogeado.id_rol == 4)" (click)="irGestion()">  
+            Gestión
+        </button>
+
+        <button mat-icon-button  class="botonGestion" *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 2)" (click)="irAsistencia()">  
+            Asistencia
+        </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="content-row content-row-func" *ngIf="menuOculto == false">
+        <button mat-icon-button  class="botonGestion" (click)="irACatalogo()">  
+            Catálogo
+        </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="content-row content-row-func" *ngIf="menuOculto == false">
+        <button mat-icon-button *ngIf="usuarioLogeado == null" (click)="irALogin()">  
+            Login
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu" class="botonLogin" *ngIf="usuarioLogeado != null ">  
+            {{usuarioLogeado.username}}
+        </button>
+        <mat-menu #menu="matMenu" class="menu">
+            <button mat-menu-item *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 1)" (click)="irAPerfil()">
+                <mat-icon class="mat-menu-icon">account_circle</mat-icon>Perfil
+            </button>
+            <button mat-menu-item *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 1)" (click)="irAHistorial()">
+                <mat-icon class="mat-menu-icon">bookmark border icon</mat-icon> Historial
+            </button>
+            <button mat-menu-item *ngIf="usuarioLogeado != null && (usuarioLogeado.id_rol == 1)" (click)="irATickets()">
+                <mat-icon class="mat-menu-icon">contact_support</mat-icon> Asistencia
+            </button>
+            <button mat-menu-item (click)="cerrarSesion()">
+                <mat-icon class="mat-menu-icon">exit_to_app</mat-icon>Cerrar Sesión
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,30 @@
+<div  *ngIf="imagen.img == null; else elseBlock">
+    <div class="flip">
+      <div class="front" style="background-image: url(https://ak.picdn.net/shutterstock/videos/5585237/thumb/1.jpg)">
+         <h1 class="text-shadow">{{imagen.nombre}}</h1>
+      </div>
+      <div class="back">
+         <h1>{{imagen.nombre}}</h1>
+         <p>Estos descuentos son temporales, ¡No dejes pasar esta oportunidad!</p>
+         <h2 class="text-shadow-disc" *ngIf="imagen.descuento == 0">{{imagen.precio}}€</h2>
+         <h2 class="text-shadow-disc" *ngIf="imagen.descuento != 0">{{imagen.precio - (imagen.precio*imagen.descuento)/100}}€<del class="price_separator">{{imagen.precio}}€</del></h2>
+      </div>
+    </div>
+  </div>
+
+<ng-template #elseBlock>
+<div >
+    <div class="flip">
+      <div class="front" [style]="'background-image: url(' + this.url + ')'">
+        <h1 class="text-shadow">{{imagen.nombre}}</h1>
+        <h1 class="text-shadow-disc">{{imagen.descuento}}%</h1>
+      </div>
+      <div class="back">
+        <h1>{{imagen.nombre}}</h1>
+        <p>Estos descuentos son temporales, ¡No dejes pasar esta oportunidad!</p>
+         <h2 class="text-shadow-disc" *ngIf="imagen.descuento == 0">{{imagen.precio}}€</h2>
+         <h2 class="text-shadow-disc" *ngIf="imagen.descuento != 0">{{imagen.precio - (imagen.precio*imagen.descuento)/100}}€<del class="price_separator">{{imagen.precio}}€</del></h2>
+      </div>
+    </div>
+  </div>
+</ng-template>

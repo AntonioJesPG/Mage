@@ -1,0 +1,13 @@
+CUENTA PAGO CLIENTE
+
+MAIL: sb-qwyx26471077@personal.example.com
+PASSWORD: Aw*=8*jx
+
+TARJETA DE CREDITO
+
+Nº: 4020027650652804
+FECHA: 07/2026
+CV: 123
+VISA
+
+El resto de datos se puede poner lo que sea

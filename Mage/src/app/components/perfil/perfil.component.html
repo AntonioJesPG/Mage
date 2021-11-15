@@ -1,0 +1,102 @@
+<div class="main-profile">
+
+    <div class="card card-user">
+        <h1 class="h1-home">Mi perfil</h1>
+        <div class="card-body">
+            <form [formGroup] = "modForm" class="col-12 col-md-8 offset-md-2">
+                <div class="row complete-row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput  formControlName="email" class="input-registro" readonly>
+                    <div *ngIf="modForm.controls['email'].invalid && (modForm.controls['email'].dirty || modForm.controls['email'].touched)">
+                    </div>
+                </mat-form-field>
+                </div>
+                <div class="row double-row">
+                <mat-form-field appearance="outline">
+                        <mat-label>Nombre de usuario</mat-label>
+                        <input matInput  formControlName="username" class="input-registro">
+                        <div *ngIf="modForm.controls['username'].invalid && (modForm.controls['username'].dirty || modForm.controls['username'].touched)">
+                            <ng-container *ngIf="modForm.controls.username.errors != undefined" [readonly]="editable == false">
+                                <div class="errorValidacion" *ngIf="modForm.controls.username.errors.required">Debe introducir un nombre de usuario</div>
+                                <div class="errorValidacion" *ngIf="modForm.controls.username.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                            </ng-container>
+                        </div>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>DNI</mat-label>
+                    <input matInput  formControlName="dni" class="input-registro" readonly>
+                    <div *ngIf="modForm.controls['dni'].invalid && (modForm.controls['dni'].dirty || modForm.controls['dni'].touched)">
+                    </div>
+            </mat-form-field>
+
+            </div>
+
+            <div class="row complete-row">
+                <mat-form-field appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="nombre" class="input-registro">
+                        <div *ngIf="modForm.controls['nombre'].invalid && (modForm.controls['nombre'].dirty || modForm.controls['nombre'].touched)">
+                            <ng-container *ngIf="modForm.controls.nombre.errors != undefined" [readonly]="editable == false">
+                                <div class="errorValidacion" *ngIf="modForm.controls.nombre.errors.required">Debe introducir un nombre</div>
+                                <div class="errorValidacion" *ngIf="modForm.controls.nombre.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                            </ng-container>
+                        </div>
+                </mat-form-field>
+            </div>
+                <div class="row double-row">
+                <mat-form-field appearance="outline">
+                        <mat-label>Primer apellido</mat-label>
+                        <input matInput  formControlName="primer_apellido" class="input-registro" [readonly]="editable == false">
+                        <div *ngIf="modForm.controls['primer_apellido'].invalid && (modForm.controls['primer_apellido'].dirty || modForm.controls['primer_apellido'].touched)">
+                            <ng-container *ngIf="modForm.controls.primer_apellido.errors != undefined">
+                                <div class="errorValidacion" *ngIf="modForm.controls.primer_apellido.errors.required">Debe introducir un primer apellido</div>
+                                <div class="errorValidacion" *ngIf="modForm.controls.primer_apellido.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                            </ng-container>
+                        </div>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                        <mat-label>Segundo Apellido</mat-label>
+                        <input matInput  formControlName="segundo_apellido" class="input-registro" [readonly]="editable == false">
+                        <div *ngIf="modForm.controls['segundo_apellido'].invalid && (modForm.controls['segundo_apellido'].dirty || modForm.controls['segundo_apellido'].touched)">
+                            <ng-container *ngIf="modForm.controls.segundo_apellido.errors != undefined">
+                                <div class="errorValidacion" *ngIf="modForm.controls.segundo_apellido.errors.required">Debe introducir un segundo apellido</div>
+                                <div class="errorValidacion" *ngIf="modForm.controls.segundo_apellido.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                            </ng-container>
+                        </div>
+                </mat-form-field>
+            </div>
+                
+                    <div class="form-group text-center pt-4">
+                        <button class="btn btn-primary btn-login" (click)="modificarUsuario()" *ngIf="editable == false">Modificar</button>
+                        <button class="btn btn-primary btn-login" (click)="modificarUsuario()" *ngIf="editable == true">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-login btn-guardar" [disabled]="modForm.invalid" (click)="guardarUsuarioModificado()" *ngIf="editable == true">Guardar</button>
+                    </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="products-div">
+    <h1 class="h1-home">Mis productos</h1>
+
+        <div class="box-wrapper" *ngFor="let producto of productosComprados">
+            <app-imagen-producto [imagen]="producto"></app-imagen-producto>
+            <div class="box-content">
+                    <div class="buy"><a (click)="descargar()"><span class="icon-span"><mat-icon class="mat-menu-icon icono">file_download</mat-icon></span></a></div>
+                <div class="title">{{producto.nombre}}</div>
+            </div>
+            <div class="success"></div>
+        </div>
+
+        <div class="empty-div" *ngIf="productosComprados?.length == 0">
+            <mat-card class="empty-card">
+                <mat-card-content>
+                    <h1>Aún no has comprado nada</h1>
+                </mat-card-content>
+              </mat-card>
+        </div>
+    </div>
+</div>

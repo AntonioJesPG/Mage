@@ -1,0 +1,65 @@
+<div class="contenedor">
+    <div class="contenedorTabla" >
+  
+        <mat-toolbar>
+            <button mat-raised-button color="primary" (click)="volverAHome()">
+                Volver
+            </button>
+            <button mat-raised-button color="primary" class="botonCrear boton-basic" *ngIf="listaCesta?.length > 0" (click)="vaciarCesta()" >
+                Vaciar <mat-icon class="boton-basic-icon">delete</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" class="boton-basic" *ngIf="listaCesta?.length > 0" (click)="irAPago()" >
+                Pagar
+            </button>
+        
+        </mat-toolbar>
+
+      <div *ngIf="listaCesta?.length == 0" class="empty-div">
+        <mat-card class="empty-card">
+            <img mat-card-image src="http://afiliate.ventasnica.com/assets/plugins/store/img/empty_cart_teaser.jpg" class="empty-img">
+            <mat-card-content>
+                <h1>Actualmente no hay productos en tu cesta, ve a comprar algo</h1>
+            </mat-card-content>
+          </mat-card>
+      </div>
+
+      <mat-table [dataSource]="listaCesta" class="tablaProducto" id="tablaCesta" *ngIf="listaCesta?.length > 0">
+        <div class="total">
+            <ng-container matColumnDef="Imagen">
+                <th mat-header-cell class="tableHeader" *matHeaderCellDef> Producto </th>
+                <td mat-cell *matCellDef="let element"><div  class="imagen-producto"> <app-imagen-producto [imagen]="element"></app-imagen-producto></div> </td>
+                <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+
+                <ng-container matColumnDef="Nombre">
+                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                    <td mat-cell *matCellDef="let element"> {{element.nombre_producto}} </td>
+                    <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+
+                <ng-container matColumnDef="Funcion1">
+                    <th mat-header-cell *matHeaderCellDef>  </th>
+                    <td mat-cell *matCellDef="let element" class="td_cell"> 
+                        <button mat-raised-button class="botonFuncion" (click)="eliminarProductoCesta(element.id_producto)"><mat-icon>clear</mat-icon></button>
+                    </td>
+                    <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+
+                <ng-container matColumnDef="Precio">
+                    <th mat-header-cell *matHeaderCellDef> Precio </th>
+                    <td mat-cell *matCellDef="let element"> {{element.precio}}€ </td>
+                    <td mat-footer-cell *matFooterCellDef> Total : {{precioTotal}}€ </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="nombresDeColumnas; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: nombresDeColumnas;"></tr>
+                <tr mat-footer-row *matFooterRowDef="nombresDeColumnas; sticky: true"></tr>
+            </div>
+        </mat-table>
+
+        <div *ngIf="listaCesta?.length == 1" class="spacer">
+        </div>
+
+    </div>
+  </div>
+

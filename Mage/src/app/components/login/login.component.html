@@ -1,0 +1,131 @@
+<div class="full-height">
+
+<main class="row">
+
+    <section class="col-md-6 panel-left">
+        <div class="container">
+            <div class="row">
+                <h1 class="col-12 text-center h1-registro">Regístrate</h1>
+            </div>
+            <div class="row">
+                <p class="col-12 text-center description">
+                    Es gratis
+                </p>
+
+                <button class="btn btn-primary btn-registro" (click)="irARegistro()" >Unirse</button>
+
+            </div>
+            <div class="row mt-5">                    
+                <div class="col-12 logo-container d-flex justify-content-center logo">
+                    <img src="../../../assets/500x500 blanco.png" alt="mage_logo">
+                </div>
+            </div>
+            <div class="form-group text-center pt-4">
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="col-md-6 panel-right">
+        <div class="container">
+            <div class="row mb-5">
+                <h1 class="col-12 text-center h1-login">Iniciar sesión</h1>
+            </div>
+            <div class="row">
+            <form [formGroup] = "loginForm" class="col-12 col-md-8 offset-md-2">
+
+                <mat-form-field appearance="outline">
+
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Dirección de correo" formControlName="email" class="input-login">
+                    <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+                        <ng-container *ngIf="loginForm.controls.email.errors != undefined">
+                            <div class="errorValidacion" *ngIf="loginForm.controls.email.errors.required">Debe introducir un email</div>
+                            <div class="errorValidacion" *ngIf="loginForm.controls.email.errors.email">Debe introducir una dirección de correo válida</div>
+                            <div class="errorValidacion" *ngIf="loginForm.controls.email.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                        </ng-container>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [type]="ocultarPassword ? 'password' : 'text' " formControlName="password" class="form-control" placeholder="Contraseña">
+                        <button mat-icon-button matSuffix (click)="ocultarPassword = !ocultarPassword">
+                            <mat-icon>{{ocultarPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                        </button>
+                        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                            <ng-container *ngIf="loginForm.controls.password.errors != undefined">
+                                <div class="errorValidacion" *ngIf="loginForm.controls.password.errors.required">Debe introducir una contraseña</div>
+                                <div class="errorValidacion" *ngIf="loginForm.controls.password.errors.minlength">La contraseña ha de tener 4 caracteres o más</div>
+                                <div class="errorValidacion" *ngIf="loginForm.controls.password.errors.maxlength">Ha superado el máximo de caracteres permitidos</div>
+                            </ng-container>
+                        </div>
+
+                </mat-form-field>
+                
+                    <div class="form-group text-center pt-4">
+                        <button type="submit" class="btn btn-primary btn-login" [disabled]="loginForm.invalid" (click)="autenticaUsuario()">Entrar</button>
+                    </div>
+
+                    <div class="col-12 links text-center">
+                        <div class="recuperar_pass">
+                            <a href="#">Recuperar contraseña</a>
+                        </div>
+                        <div>
+                            <a class="registro-a" href="registro">Crear cuenta</a>
+                        </div>                        
+                    </div>
+
+            </form>
+        </div>
+</div>
+</section>
+
+<div id="respuestaDelServidor"></div>
+</main>
+
+</div>
+
+<!--
+<div class="main-div">
+    <mat-card class="loginCard">
+        <mat-card-header>
+            <mat-card-title>Inicio de sesión</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="assets/images/login.jpg" alt="imagen_login">
+        <mat-card-content>
+            <form [formGroup] = "loginForm">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="dirección de correo" formControlName="email">
+                    <ng-container *ngIf="loginForm.controls.email.errors != undefined">
+                        <div class="errorValidacion" *ngIf="loginForm.controls.email.errors.required">Debe introducir un email</div>
+                        <div class="errorValidacion" *ngIf="loginForm.controls.email.errors.email">Debe introducir una dirección de correo válida</div>
+                    </ng-container>
+                </mat-form-field>    
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput [type]="ocultarPassword ? 'password' : 'text' " formControlName="password">
+                    <button mat-icon-button matSuffix (click)="ocultarPassword = !ocultarPassword">
+                        <mat-icon>{{ocultarPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </button>
+                    <ng-container *ngIf="loginForm.controls.password.errors != undefined">
+                        <div class="errorValidacion" *ngIf="loginForm.controls.password.errors.required">Debe introducir una contraseña</div>
+                        <div class="errorValidacion" *ngIf="loginForm.controls.password.errors.minlength">La contraseña ha de tener 4 caracteres o más</div>
+                    </ng-container>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="autenticaUsuario()">Entrar</button>
+            <button mat-raised-button color="primary" (click)="irARegistro()">Registrarme</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<div id="respuestaDelServidor"></div>
+-->
